@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <record id="my_property_tree" model="ir.ui.view">
+        <field name="name">My Property</field>
+        <field name="model">my.property</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="my_property_form" model="ir.ui.view">
+        <field name="name">My Property Name</field>
+        <field name="model">my.property</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        
+                        </group>
+                    </group>
+                
+                </sheet>
+            </form>
+        </field>
+    </record> -->
+
+     <record id="my_property_search" model="ir.ui.view">
+        <field name="name">Estate Property Search</field>
+        <field name="model">my.property</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <!-- <filter name="My Property" domain="[('name', '=', partner_id)]"/> -->
+                <group expand="1" string="Group By">
+                    <filter string="My property" name="partner_id" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

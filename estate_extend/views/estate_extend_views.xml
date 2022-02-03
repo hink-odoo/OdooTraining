@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- <record id="estate_property_inherited_view_form" model="ir.ui.view">
+            <field name="name">estate.property.form.inherit.test</field>
+            <field name="model">estate.property</field>
+            <field name="inherit_id" ref="estate.estate_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='property_offer_ids']" position="after">
+                <field name="additional_deatils"/>
+                </xpath>
+            </field>
+        </record> -->
+
+        <record id="estate_property_inherited_form" model="ir.ui.view">
+            <field name="name">Estate Property Inherited</field>
+            <field name="model">estate.property</field>
+            <field name="inherit_id" ref="estate.estate_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='estate_property_offer']" position="attributes">
+                    <attribute name="string">Estate Property Offer</attribute>
+                </xpath>
+                <xpath expr="//page[@name='estate_property_offer']/group/field[@name='property_offer_ids']" position="attributes">
+                    <attribute name="nolabel">1</attribute>
+                </xpath>
+                <xpath expr="//page[@name='estate_property_offer']" position="after">
+                    <page name="lease_rent_monthly" string="Lease Details">
+                        <field name="lease_rent_monthly"/>
+                    </page>
+                </xpath>         
+            </field>
+        </record>
+
+        <record id="lease_property_tree" model="ir.ui.view">
+            <field name="name">Lease Property</field>
+            <field name="model">lease.property</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="lease_property_form" model="ir.ui.view">
+            <field name="name">Lease Property</field>
+            <field name="model">lease.property</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="lease_duration" string="Lease Details">
+                                <field name="lease_duration"/>
+                                <field name="lease_rent_monthly"/>
+                            </page>
+                             <page name="estate_property_offer" string="Estate Property Offer">
+                                <field name="property_offer_ids" nolabel="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        
+    </data>
+</odoo>
